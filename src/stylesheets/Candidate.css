@@ -1,0 +1,47 @@
+.candidate-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+
+.candidate-data {
+    display: flex;
+    gap: 100px;
+     
+}
+
+.candidate-studies{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+}
+.candidate-information {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.candidate-personal-data {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn-actions-offers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    left: 7%;
+    margin-top: 8px;
+}
+
+.candidate-text-description {
+    color: purple;
+}
+
