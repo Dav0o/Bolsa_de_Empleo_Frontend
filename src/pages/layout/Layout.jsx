@@ -1,12 +1,13 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Outlet, NavLink } from "react-router-dom";
 import Candidate from "../candidate/Candidate";
+import '../../stylesheets/Nav.css'
 
 const Layout = () => {
   const queryClient = new QueryClient();
   return (
     <>
-      <nav>
+      <nav className="nav">
         <NavLink className="" to="/">
           Home
         </NavLink>
