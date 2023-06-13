@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../stylesheets/AddCandidate.css'
 
 function AddCandidate() {
   const [candidate, setCandidate] = useState({
@@ -67,49 +68,48 @@ function AddCandidate() {
     <div className="add-candidate-container">
       <h2>Agregar Candidato</h2>
       <form onSubmit={handleSubmit}>
-        <br />
+       
         <div className="form-group">
-          <label htmlFor="nombre">Nombre: </label>
-          <input type="text" id="nombre" name="nombre" value={candidate.nombre} onChange={handleChange} />
-          <br />
+          
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre" value={candidate.nombre} onChange={handleChange} />
+       
         </div>
-        <br />
+        
         <div className="form-group">
-          <label htmlFor="apellido1">Apellido1:</label>
-          <input type="text" id="apellido1" name="apellido1" value={candidate.apellido1} onChange={handleChange} />
-          <br />
+          
+          <input type="text" id="apellido1" name="apellido1" placeholder="Apellido1" value={candidate.apellido1} onChange={handleChange} />
+         
         </div>
-        <br />
+       
         <div className="form-group">
-          <label htmlFor="apellido2">Apellido2:</label>
-          <input type="text" id="apellido2" name="apellido2" value={candidate.apellido2} onChange={handleChange} />
-          <br />
+          
+          <input type="text" id="apellido2" name="apellido2" placeholder="Apellido2" value={candidate.apellido2} onChange={handleChange} />
+         
         </div>
-        <br />
+       
         <div className="form-group">
-          <label htmlFor="telefono">Teléfono:</label>
-          <input type="text" id="telefono" name="telefono" value={candidate.telefono} onChange={handleChange} />
-          <br />
+         
+          <input type="text" id="telefono" name="telefono" placeholder="Teléfono" value={candidate.telefono} onChange={handleChange} />
+         
         </div>
-        <br />
+       
         <div className="form-group">
-          <label htmlFor="correo_electronico">Correo:</label>
-          <input type="email" id="correo_electronico" name="correo_electronico" value={candidate.correo_electronico} onChange={handleChange} />
-          <br />
+         
+          <input type="email" id="correo_electronico" name="correo_electronico" placeholder="Email" value={candidate.correo_electronico} onChange={handleChange} />
+         
         </div>
-        <br />
+       
         <div className="form-group">
-          <label htmlFor="direccion">Dirección:</label>
-          <input type="text" id="direccion" name="direccion" value={candidate.direccion} onChange={handleChange} />
-          <br />
+          <input type="text" id="direccion" name="direccion" placeholder="Dirección" value={candidate.direccion} onChange={handleChange} />
+        
         </div>
-        <br />
+      
         <div className="form-group">
-          <label htmlFor="descripcion">Descripción:</label>
-          <input type= "text" id="descripcion" name="descripcion" value={candidate.descripcion} onChange={handleChange} />
-          <br />
+          
+          <input type= "text" id="descripcion" name="descripcion" placeholder="Descripción" value={candidate.descripcion} onChange={handleChange} />
+         
         </div>
-        <br />
+        
         <button type="submit" className="submit-button">Save</button>
       </form>
     </div>
