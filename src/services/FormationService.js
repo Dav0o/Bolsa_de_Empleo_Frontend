@@ -9,4 +9,5 @@ export const getFormations = async () => {
 export const create = async (formation) => { 
     let data = await api.post('formaciones_academicas',formation).then(result => result.data);
     return data;
+    
 };

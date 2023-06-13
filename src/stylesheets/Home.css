@@ -1,0 +1,37 @@
+.home-container {
+    display: flex;
+    margin-left: 45px;
+    margin-top: 45px;
+    
+}
+
+.home-image {
+    position: relative;
+    left: 100px;
+    top: 35px;
+}
+
+.home-title-principal {
+    font-size: 60px;
+    color: #414BB2;
+}
+
+@media (max-width: 992.50px) {
+    .home-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .home-title-principal {
+        font-size: 30px;
+        color: #0a66c2;
+        margin-bottom: 50px;
+    }
+
+    .home-image {
+        left: 0;
+        top: 0;
+        
+    }
+}

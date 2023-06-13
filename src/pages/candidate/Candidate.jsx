@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useCandidateData } from "../../services/hooks/useCandidateData";
 import AddStudies from "./components/AddStudies";
 import "../../stylesheets/Candidate.css";
+import axios from "axios";
 
 function Candidate() {
   const { candidateId } = useParams();
@@ -14,6 +15,12 @@ function Candidate() {
 
   if (isError) {
     return <h2>{error.message}</h2>;
+  }
+
+  const deleteHandler = (id, e) => {
+    e.preventDefault();
+    axios.delete(`https://localhost:7209/api/Formaciones_Academicas/${id}`)
+    .then(res => console.log('Deleted', res)).catch(err=>console.log(err))
   }
 
   return (
@@ -48,7 +55,7 @@ function Candidate() {
                 <th>Titulo</th>
                 <th>TiempoEmpleado</th>
                 <th>Fecha Culminacion</th>
-                <th>Delete</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -59,7 +66,7 @@ function Candidate() {
                   <td>{formation.tiempo_Empleado}</td>
                   <td>{formation.fecha_Culminacion}</td>
                   <td>
-                    <button>Delete</button>
+                    <button onClick={(e) => deleteHandler(formation.id,e)}> <span className="material-symbols-outlined">delete</span> </button>
                   </td>
                 </tr>
               ))}

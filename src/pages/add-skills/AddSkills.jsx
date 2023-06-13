@@ -1,13 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useMutation, useQuery } from 'react-query';
 import { createCandidateSkills, getSkills } from '../../services/SkillsService';
+import CandidateInfo from './components/CandidateInfo';
+import '../../stylesheets/AddSkills.css'
+import { useParams, Link } from 'react-router-dom';
+
 
 const AddSkills = () => {
 
+  const {candidateId} = useParams();
+  const [isActive, setIsActive] = useState(false);
+
   const { data, isLoading, isError } = useQuery('habilidades', getSkills);
-  //const [active, setActive] = useState(false);
+  
   const mutation = useMutation('candidatohabilidades', createCandidateSkills);
-  const [valueBtn, setValueBtn] = useState(0);
+
  
 
   if(isLoading) {
@@ -18,35 +25,43 @@ if(isError) {
     return <div>Error</div>
 }
 
-  const handleSave = () => {
-      // let newCandidatoHabilidad = {
-      //   candidatoId: 1,
-      //   habilidadId:1
-      // };
-      // mutation.mutateAsync(newCandidatoHabilidad);
 
-      // active ? setActive(false) : setActive(true)
-      console.log()
+  const handleSave = (id) => {
 
+      if(isActive){
+
+
+        setIsActive(!isActive);
+
+      }else{
+        let newCandidatoHabilidad = {
+          candidatoId: parseInt(candidateId),
+          habilidadId:id
+        };
+       mutation.mutateAsync(newCandidatoHabilidad);
+       setIsActive(!isActive);
+      }
+       
+       
   }
   return (
-    <div className='card-habilidades'>
+    <div className='container'>
       <div className='card-container'>
         <div className='card-information'>
-
+          <CandidateInfo/>
         </div>
         <div className='card-buttons'>
           <div className='skill-button'>
             {data.map((habilidad)=>(
               <button
-              onClick={handleSave}
+              onClick={() => handleSave(habilidad.id)}
+              className={isActive ? 'active-btn' : ''}
               key={habilidad.id}
               >{habilidad.nombre}</button>
             ))}
           </div>
           <div className='actions-button'>
-              <button>Cancelar</button>
-              <button>Guardar</button>
+              <Link to={`/candidates`}><button className='btn-exit'>Salir</button></Link>
           </div>
         </div>
       </div>

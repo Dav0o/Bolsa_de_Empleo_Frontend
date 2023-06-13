@@ -18,8 +18,9 @@ function App() {
           <Route path='/add-candidate' element={<AddCandidate/>}/>
           <Route path='/candidates' element={<Candidates/>}/>
           <Route path='/candidate/:candidateId' element={<Candidate/>}/>
+          <Route path='/add-skills/:candidateId' element={<AddSkills/>}/>
           <Route path='/offers' element={<Offers/>}/>
-          <Route path='/add-skills' element={<AddSkills/>}/>
+          
           
         </Route>
       </Routes>

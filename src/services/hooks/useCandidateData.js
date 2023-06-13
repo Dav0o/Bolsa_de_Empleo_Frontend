@@ -8,3 +8,4 @@ const fetchCandidate = (candidateId) => {
 export const useCandidateData = (candidateId) => {
     return useQuery(['candidato', candidateId], () => fetchCandidate(candidateId))
 }
+

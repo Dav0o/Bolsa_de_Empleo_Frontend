@@ -23,10 +23,7 @@ const Layout = () => {
           {" "}
           Ofertas
         </NavLink>
-        <NavLink className="" to="/add-skills">
-          {" "}
-          Habilidades
-        </NavLink>
+        
       </nav>
 
       <main>
