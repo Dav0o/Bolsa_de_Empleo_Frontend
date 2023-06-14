@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { getOfertas } from "../../services/OffersService";
 import "../../stylesheets/Offers.css";
+import Postulate from "./components/Postulate";
 
 function Offers() {
   const { data, isLoading, isError } = useQuery("ofertas", getOfertas, {
     enabled: true,
   });
+
+  const [selectedOffer, setSelectedOffer] = useState(null)
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -16,8 +19,13 @@ function Offers() {
     return <div>Error</div>;
   }
 
+  const handlePostulateClick = (ofertaDescripcion) => {
+    setSelectedOffer(ofertaDescripcion);
+  };
+
   return (
     <>
+      <div className="master">
       <div className="container">
         {data.map((ofertas) => (
           <div className="card-ofertas" key={ofertas.id}>
@@ -39,12 +47,14 @@ function Offers() {
                 ))}
               </div>
               <div className="card-footer-btn">
-                <button>Postularse</button>
+                <button onClick={()=>handlePostulateClick(ofertas.descripcion_Puesto)}>Postularse</button>
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        ))}      
+        </div>
+        {setSelectedOffer && <Postulate ofertaDescripcion={selectedOffer} />}
+      </div>  
     </>
   );
 }
