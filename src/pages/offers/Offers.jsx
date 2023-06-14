@@ -10,6 +10,7 @@ function Offers() {
   });
 
   const [selectedOffer, setSelectedOffer] = useState(null)
+   const [selectedOfferId, setSelectedOfferId] = useState(null);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -19,8 +20,9 @@ function Offers() {
     return <div>Error</div>;
   }
 
-  const handlePostulateClick = (ofertaDescripcion) => {
+  const handlePostulateClick = (ofertaDescripcion, ofertaId) => {
     setSelectedOffer(ofertaDescripcion);
+    setSelectedOfferId(ofertaId);
   };
 
   return (
@@ -53,7 +55,7 @@ function Offers() {
           </div>
         ))}      
         </div>
-        {setSelectedOffer && <Postulate ofertaDescripcion={selectedOffer} />}
+        {setSelectedOffer && <Postulate ofertaDescripcion={selectedOffer} ofertaId={selectedOfferId}/>}
       </div>  
     </>
   );
