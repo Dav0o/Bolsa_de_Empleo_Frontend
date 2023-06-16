@@ -10,7 +10,7 @@ function Offers() {
   });
 
   const [selectedOffer, setSelectedOffer] = useState(null)
-   const [selectedOfferId, setSelectedOfferId] = useState(null);
+  const [selectedOfferId, setSelectedOfferId] = useState(null);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -49,7 +49,7 @@ function Offers() {
                 ))}
               </div>
               <div className="card-footer-btn">
-                <button onClick={()=>handlePostulateClick(ofertas.descripcion_Puesto)}>Postularse</button>
+                <button onClick={()=>handlePostulateClick(ofertas.descripcion_Puesto, ofertas.id)}>Postularse</button>
               </div>
             </div>
           </div>
