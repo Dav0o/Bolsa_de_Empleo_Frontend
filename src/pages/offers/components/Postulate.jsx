@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { getCandidatos } from "../../../services/CandidateService";
 import { useQuery } from 'react-query';
 
-function Postulate({ ofertaDescripcion, ofertaId }) {
+function Postulate({ ofertaDescripcion, ofertaId, onClose }) {
   const { data, isLoading, isError } = useQuery("candidatos", getCandidatos, { enable: true });
 
   const [email, setEmail] = useState('');
+  const [postulationSuccess, setPostulationSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handlePostular = async () => {
-
     const matchingCandidate = data.find(candidate => candidate.correo_Electronico === email);
       
     if (matchingCandidate) {
@@ -27,19 +28,19 @@ function Postulate({ ofertaDescripcion, ofertaId }) {
         });
       
         if (response.ok) {
-          console.log('postulacion completa')
-
-        }
-        else {
-          console.log('postulacion error')
+          setPostulationSuccess(true);
+          setTimeout(() => {
+            onClose();
+          }, 2000);
+        } else {
+          console.log('postulacion error');
         }
       } catch (error) {
-        console.log('erroor post:', error);
+        console.log('error post:', error);
       }
     } else {
-      console.log('Correo no encontrado');
+      setErrorMessage('El correo ingresado no existe');
     }
-
   };
 
   const handleChangeEmail = (event) => {
@@ -55,16 +56,26 @@ function Postulate({ ofertaDescripcion, ofertaId }) {
   }
 
   return (
-    <div className='postulate'>
-      <label className='oferta-nombre'>{ofertaDescripcion}</label>
-      <input
-        type="text"
-        placeholder="Email"
-        className="input-email"
-        value={email}
-        onChange={handleChangeEmail}
-      />
-      <button className="btn-postular" onClick={handlePostular}>Postularse</button>
+    <div className='postulate-overlay'>
+      <div className='postulate'>
+        <label className='oferta-nombre'>{ofertaDescripcion}</label>
+        {postulationSuccess ? (
+          <p>Se ha postulado con éxito!</p>
+        ) : (
+          <>
+            <input
+              type="text"
+              placeholder="Email"
+              className="input-email"
+              value={email}
+              onChange={handleChangeEmail}
+            />
+            <button className="btn-postular" onClick={handlePostular}>Postularse</button>
+          </>
+        )}
+        {errorMessage && <p>{errorMessage}</p>}
+        <button className="btn-cerrar" onClick={onClose}>Cerrar</button>
+      </div>
     </div>
   );
 }
