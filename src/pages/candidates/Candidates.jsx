@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 import "../../stylesheets/Candidates.css";
 
 function Candidates() {
-  const { data, isLoading, isError } = useQuery("candidatos", getCandidatos, {
-    enabled: true,
-  });
+  const { data, isLoading, isError } = useQuery("candidatos", getCandidatos, {enabled: true, });
 
   if (isLoading) {
     return <div>Loading...</div>;
