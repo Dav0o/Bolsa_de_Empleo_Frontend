@@ -26,6 +26,7 @@
 
 
 .tabla-candidatos {
+    height: 80vh;
     display: flex;
     justify-content:center;
     align-items: center;
@@ -36,7 +37,7 @@
 table {
     width: 75%;
     border-collapse: collapse;
-    
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 th,
@@ -67,4 +68,24 @@ button {
 
 .habilidades{
    margin-left: 10px;
+}
+
+.btn-delete {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.titulos {
+    border: none;
+    cursor: pointer;
+    color: rgb(135, 109, 245);
+    background-color:white;
+}
+
+.habilidades {
+    border: none;
+    cursor: pointer;
+    color: rgb(135, 109, 245);
+    background-color:white;
 }

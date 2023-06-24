@@ -19,68 +19,87 @@ function Candidate() {
 
   const deleteHandler = (id, e) => {
     e.preventDefault();
-    axios.delete(`https://localhost:7209/api/Formaciones_Academicas/${id}`)
-    .then(res => console.log('Deleted', res)).catch(err=>console.log(err))
-  }
+    axios
+      .delete(`https://localhost:7209/api/Formaciones_Academicas/${id}`)
+      .then((res) => console.log("Deleted", res))
+      .catch((err) => console.log(err));
+  };
 
   return (
-    <>
-      <div className="candidate-container">
-        <div className="candidate-data">
-          <div className="candidate-information">
-            <div className="candidate-personal-data">
-              <span> {data?.data.nombre}</span>
-              <span>{data?.data.correo_Electronico}</span>
-              <span className="candidate-text-description">{data?.data.descripcion}</span>
-            </div>
-            <div className="candidate-habilidades">
-              {data?.data.candidatoHabilidades.map((habilidades) => (
-                <span key={habilidades.candidatoId}>
-                  <button>{habilidades.habilidadId}</button>
+    <div className="candidate-container">
+      <div className="candidate-box">
+        <div className="candidate-border-box">
+          <div className="candidate-data">
+            <div className="candidate-information">
+              <div className="candidate-personal-data">
+                <span> {data?.data.nombre}</span>
+                <span>{data?.data.correo_Electronico}</span>
+                <span className="candidate-text-description">
+                  {data?.data.descripcion}
                 </span>
-              ))}
+              </div>
+              <div className="candidate-habilidades">
+                {data?.data.candidatoHabilidades.map((habilidades) => (
+                  <span key={habilidades.candidatoId}>
+                    <button>{habilidades.habilidadId}</button>
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="candidate-studies">
+              <AddStudies />
             </div>
           </div>
-          <div className="candidate-studies">
-            
-            <AddStudies />
-          </div>
-        </div>
 
-        <div className="candidate-table-studies">
-          <table>
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>Titulo</th>
-                <th>TiempoEmpleado</th>
-                <th>Fecha Culminacion</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data?.data.formaciones.map((formation) => (
-                <tr key={formation.id}>
-                  <td>{formation.id}</td>
-                  <td>{formation.titulo}</td>
-                  <td>{formation.tiempo_Empleado}</td>
-                  <td>{formation.fecha_Culminacion}</td>
-                  <td>
-                    <button onClick={(e) => deleteHandler(formation.id,e)}> <span className="material-symbols-outlined">delete</span> </button>
-                  </td>
+          <div className="candidate-table-studies">
+            <table>
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Titulo</th>
+                  <th>TiempoEmpleado</th>
+                  <th>Fecha Culminacion</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {data?.data.formaciones.map((formation) => (
+                  <tr key={formation.id}>
+                    <td>{formation.id}</td>
+                    <td>{formation.titulo}</td>
+                    <td>{formation.tiempo_Empleado}</td>
+                    <td>{formation.fecha_Culminacion}</td>
+                    <td>
+                      <button
+                        className="btn-delete"
+                        onClick={(e) => deleteHandler(formation.id, e)}
+                      >
+                        {" "}
+                        <span className="material-symbols-outlined">
+                          delete
+                        </span>{" "}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-        <div className="btn-actions-offers">
-          <Link to={`/offers`}> <button>Ver ofertas</button> </Link> 
-          <button>Ver ofertas por habilidad</button>
-          <button> Ver mis postulaciones</button>
+          <div className="btn-actions-offers">
+            <Link to={`/offers`}>
+              {" "}
+              <button>Ver ofertas</button>{" "}
+            </Link>
+            <Link to={`/offer-skill`}>
+              <button>Ver ofertas por habilidad</button>
+            </Link>
+
+            <button> Ver mis postulaciones</button>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

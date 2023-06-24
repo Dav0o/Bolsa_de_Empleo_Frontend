@@ -21,7 +21,7 @@ const Layout = () => {
         </NavLink>
         <NavLink className="" to="/offers">
           {" "}
-          Ofertas
+          Offers
         </NavLink>
         
       </nav>

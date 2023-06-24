@@ -1,9 +1,3 @@
-.master {
-    display: grid;
-    grid-template-columns: 75% 25%;
-    grid-gap: 10px;
-}
-
 .container {
     height: 100vh;
     display: flex;
@@ -12,11 +6,12 @@
 }
 
 .card-ofertas {
-    border: 2px solid black;
+    border: 2px solid rgb(135, 109, 245);
     border-radius: 8px;
     width: 80%;
     padding: 6px 10px;
-    margin: 8px;
+    margin: 18px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .card-title {
@@ -38,7 +33,6 @@
 
 /* Postulate Component */
 
-
 .postulate {
     height: 100vh;
     display: flex;
@@ -46,6 +40,18 @@
     align-items: center;
     position: sticky;
 }
+
+.postularse-btn {
+  background-color: rgb(135, 109, 245);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 auto;
+  font-style: italic;
+}
+
 
 
 

@@ -35,13 +35,13 @@ function Candidates() {
                 <td>{candidato.correo_Electronico}</td>
                 <td>
                   <button className="titulos">
-                    <Link to={`/candidate/${candidato.id}`}>
+                    <Link className="titulos" to={`/candidate/${candidato.id}`}>
                       <span className="material-symbols-outlined">edit</span>
                     </Link>
                   </button>
 
                   <button className="habilidades">
-                    <Link to={`/add-skills/${candidato.id}`}>
+                    <Link className='habilidades' to={`/add-skills/${candidato.id}`}>
                       <span className="material-symbols-outlined">dataset</span>
                     </Link>
                   </button>

@@ -33,7 +33,7 @@ function Offers() {
 
   return (
     <>
-      <div className="master">
+     
         <div className="container">
           {data.map((ofertas) => (
             <div className="card-ofertas" key={ofertas.id}>
@@ -58,6 +58,7 @@ function Offers() {
                 </div>
                 <div className="card-footer-btn">
                   <button
+                  className="postularse-btn"
                     onClick={() =>
                       handlePostulateClick(
                         ofertas.descripcion_Puesto,
@@ -72,7 +73,7 @@ function Offers() {
             </div>
           ))}
         </div>
-      </div>
+     
       {showPostulate && (
         <Postulate
           ofertaDescripcion={selectedOffer}

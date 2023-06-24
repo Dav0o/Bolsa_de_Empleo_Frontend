@@ -7,6 +7,7 @@ import Candidates from './pages/candidates/Candidates'
 import Offers from './pages/offers/Offers'
 import AddCandidate from './pages/add-candidate/AddCandidate'
 import AddSkills from './pages/add-skills/AddSkills'
+import OfferSkill from './pages/offer-skill/OfferSkill'
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
           <Route path='/candidate/:candidateId' element={<Candidate/>}/>
           <Route path='/add-skills/:candidateId' element={<AddSkills/>}/>
           <Route path='/offers' element={<Offers/>}/>
-          
+          <Route path='/offer-skill' element={<OfferSkill/>}/>
           
         </Route>
       </Routes>
