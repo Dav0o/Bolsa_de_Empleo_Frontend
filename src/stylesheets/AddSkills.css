@@ -37,7 +37,13 @@
 
 }
 
-.active-btn {
-    background-color: blueviolet;
+
+.inactivebtn {
+    background-color: gray;
+    color: white;
 }
 
+.activebtn {
+    background-color: blueviolet;
+    color: white;
+}
