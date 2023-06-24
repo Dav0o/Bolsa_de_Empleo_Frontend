@@ -1,48 +1,84 @@
-.add-candidate-container {
-    background-color: #e4e2e3;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    width: 400px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .add-candidate-container h2 {
-    color: #5241a0;
-    font-size: 24px;
-    margin-bottom: 20px;
-    
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"],
-  input[type="email"] {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #6347c7;
-    border-radius: 4px;
-  }
-  
-  .submit-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
+.add-candidate-container{
+  background-color: #F5F5DC;
+  border-radius: 5px;
+  width: 400px;
+  padding: 20px;
+  margin: 0 auto;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.2rem;
+  gap: 2rem;
+  font-style: italic;
+  color:rgba(5, 5, 5, 0.5);
+}
+
+
+.form-group{
+  position: relative;
+  width: 300px;
+}
+
+
+.name-input,.lastName-input,.lastName-input,.telefono-input,.correo_electronico-input,.direccion-input,.descripcion-input{
+  width: 80%;
+  padding: 5px 0;
+  border: 2px #070707 ;
+  border-bottom: 2px solid #b47575; 
+  outline: none; 
+  background: transparent;
+  color: #070707;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.name-label,.lastName-label,.lastName-label,.telefono-label,.correo_electronico-label,.direccion-label,.descripcion-label
+{
+  position: absolute;
+  left: 0;
+  padding: 10px 5px;
+  color: rgba(5, 5, 5, 0.5);
+  font-size: 1.4rem;
+  pointer-events: none;
+  transition: 0.5s;
+  display: flexbox; 
+  font-weight:lighter;
+  font-style: italic;
+}
+
+.name-input:valid ~ label,
+.lastName-input:valid ~ label,
+.telefono-input:valid ~ label,
+.correo_electronico-input:valid ~ label,
+.direccion-input:valid ~ label,
+.descripcion-input:valid ~ label,
+.name-input:focus ~ label,
+.lastName-input:focus ~ label,
+.telefono-input:focus ~ label,
+.correo_electronico-input:focus ~ label,
+.direccion-input:focus ~ label,
+.descripcion-input:focus ~ label 
+{
+transform: translateY(-1.5rem);
+color: rgba(175, 172, 172, 0.5);
+font-size: 0.75em;
+}
+
+.submit-button {
+  background-color: rgb(135, 109, 245);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

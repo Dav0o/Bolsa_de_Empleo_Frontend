@@ -1,13 +1,12 @@
 .home-container {
     display: flex;
-    margin-left: 45px;
+    margin-left: 20px;
     margin-top: 45px;
     
 }
 
 .home-image {
     position: relative;
-    left: 100px;
     top: 35px;
 }
 
