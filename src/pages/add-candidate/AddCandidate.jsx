@@ -65,52 +65,48 @@ function AddCandidate() {
   }
 
   return (
-    <div className="add-candidate-container">
-      <h2>Agregar Candidato</h2>
-      <form onSubmit={handleSubmit}>
-       
-        <div className="form-group">
-          
-          <input type="text" id="nombre" name="nombre" placeholder="Nombre" value={candidate.nombre} onChange={handleChange} />
-       
-        </div>
+<div className='add-candidate-container'> 
+  <h2>
+    Agregar Candidato
+  </h2> 
+  <form onSubmit={handleSubmit}>
+<div className='form'>
+  <div className="form-group">
+    <input className="name-input" type="text" name="nombre" value={candidate.nombre} onChange={handleChange} required />  
+    <label className='name-label'>Nombre</label>
+  </div>
+  
+  <div className="form-group">  
+    <input className="lastName-input" type="text" name="apellido1" value={candidate.apellido1} onChange={handleChange} required />
+    <label className='lastName-label'>Primer apellido</label>
+  </div>
+
+  <div className="form-group">  
+    <input className="lastName-input" type="text" name="apellido2" value={candidate.apellido2} onChange={handleChange} required />
+    <label className='lastName-label'>Segundo apellido</label>
+  </div>
+
+  <div className="form-group">  
+    <input className="telefono-input" type="text" name="telefono" value={candidate.telefono} onChange={handleChange} required />
+    <label className='telefono-label'>Teléfono</label>
+  </div>
+
+  <div className="form-group">  
+    <input className="correo_electronico-input" type="email" name="correo_electronico" value={candidate.correo_electronico} onChange={handleChange} required />
+    <label className='correo_electronico-label'>Email</label>
+  </div>
+
+  <div className="form-group">  
+    <input className="direccion-input" type="text" name="direccion" value={candidate.direccion} onChange={handleChange} required />
+    <label className='direccion-label'>Dirección</label>
+  </div>
         
-        <div className="form-group">
-          
-          <input type="text" id="apellido1" name="apellido1" placeholder="Apellido1" value={candidate.apellido1} onChange={handleChange} />
-         
-        </div>
-       
-        <div className="form-group">
-          
-          <input type="text" id="apellido2" name="apellido2" placeholder="Apellido2" value={candidate.apellido2} onChange={handleChange} />
-         
-        </div>
-       
-        <div className="form-group">
-         
-          <input type="text" id="telefono" name="telefono" placeholder="Teléfono" value={candidate.telefono} onChange={handleChange} />
-         
-        </div>
-       
-        <div className="form-group">
-         
-          <input type="email" id="correo_electronico" name="correo_electronico" placeholder="Email" value={candidate.correo_electronico} onChange={handleChange} />
-         
-        </div>
-       
-        <div className="form-group">
-          <input type="text" id="direccion" name="direccion" placeholder="Dirección" value={candidate.direccion} onChange={handleChange} />
-        
-        </div>
-      
-        <div className="form-group">
-          
-          <input type= "text" id="descripcion" name="descripcion" placeholder="Descripción" value={candidate.descripcion} onChange={handleChange} />
-         
-        </div>
-        
+  <div className="form-group">  
+    <input className="descripcion-input" type="text" name="descripcion" value={candidate.descripcion} onChange={handleChange} required />
+    <label className='descripcion-label'>Descripción</label>
+  </div>
         <button type="submit" className="submit-button">Save</button>
+    </div>
       </form>
     </div>
   );
