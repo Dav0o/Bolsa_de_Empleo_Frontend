@@ -10,12 +10,13 @@ const Layout = () => {
   const handleNavLinkClick = (link) => {
     setActiveLink(link);
   }
+
   const queryClient = new QueryClient();
   return (
     <>
       <nav className="nav">
       <NavLink
-        className={`home ${activeLink === 'home' ? 'active' : ''}`}
+        className={`home ${activeLink === 'false' ? 'active' : ''}`}
         to="/"
         onClick={() => handleNavLinkClick('home')}
       >

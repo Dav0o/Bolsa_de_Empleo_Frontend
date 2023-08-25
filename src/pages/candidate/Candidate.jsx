@@ -1,20 +1,23 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { useCandidateData } from "../../services/hooks/useCandidateData";
+import { deleteCandidate, getByIdCandidate } from "../../services/CandidateService";
 import AddStudies from "./components/AddStudies";
 import "../../stylesheets/Candidate.css";
 import axios from "axios";
+import { useMutation, useQuery } from "react-query";
 
 function Candidate() {
   const { candidateId } = useParams();
-  const { isLoading, data, isError, error } = useCandidateData(candidateId);
+  const { isLoading, data, isError } = useQuery(['candidato', candidateId], () => getByIdCandidate(candidateId));
+
+  const deleteCantidateMutation = useMutation()
 
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
 
   if (isError) {
-    return <h2>{error.message}</h2>;
+    return <h2>{Error}</h2>;
   }
 
   const deleteHandler = (id, e) => {
@@ -32,14 +35,14 @@ function Candidate() {
           <div className="candidate-data">
             <div className="candidate-information">
               <div className="candidate-personal-data">
-                <span> {data?.data.nombre}</span>
-                <span>{data?.data.correo_Electronico}</span>
+                <span> {data.nombre}</span>
+                <span>{data.correo_Electronico}</span>
                 <span className="candidate-text-description">
-                  {data?.data.descripcion}
+                  {data.descripcion}
                 </span>
               </div>
               <div className="candidate-habilidades">
-                {data?.data.candidatoHabilidades.map((habilidades) => (
+                {data.candidatoHabilidades.map((habilidades) => (
                   <span key={habilidades.candidatoId}>
                     <button>{habilidades.habilidadId}</button>
                   </span>
@@ -63,7 +66,7 @@ function Candidate() {
                 </tr>
               </thead>
               <tbody>
-                {data?.data.formaciones.map((formation) => (
+                {data.formaciones.map((formation) => (
                   <tr key={formation.id}>
                     <td>{formation.id}</td>
                     <td>{formation.titulo}</td>
@@ -72,7 +75,7 @@ function Candidate() {
                     <td>
                       <button
                         className="btn-delete"
-                        onClick={(e) => deleteHandler(formation.id, e)}
+                       
                       >
                         {" "}
                         <span className="material-symbols-outlined">
